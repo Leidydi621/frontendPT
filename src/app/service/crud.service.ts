@@ -8,12 +8,17 @@ import { Curso } from './Curso';
   providedIn: 'root'
 })
 export class CrudService {
-  API: string = 'http://localhost:8000/api/addCurso';
+  apiurl= 'http://localhost:8000/api/addCurso';
+  apiUrl2 = 'http://localhost:8000/api/cursos/';
 
   constructor(private clientHttp:HttpClient) {}
 
 
   AddCurso(datosCurso:Curso): Observable<any> {
-    return this.clientHttp.post(this.API +"?page=1", datosCurso);
+    return this.clientHttp.post(this.apiurl, datosCurso);
+  }
+
+  getCursos(){
+    return this.clientHttp.get(this.apiUrl2);
   }
 }

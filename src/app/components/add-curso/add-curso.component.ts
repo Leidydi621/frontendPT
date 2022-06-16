@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 import { CrudService } from 'src/app/service/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-curso',
@@ -14,13 +15,14 @@ export class AddCursoComponent implements OnInit {
 
   constructor(
     public form:FormBuilder,
-    private crudService:CrudService
+    private crudService:CrudService,
+    private router:Router
     ) { 
 
     this.formDelCurso = this.form.group({
-        nombre:[''],
-        fechaDeInicioDelCurso:[''],
-        fechaDeFinDelCurso:[''],
+        Nombre:[''],
+        FechaDeInicioDelCurso:[''],
+        FechaDeFinDelCurso:[''],
     });
   }
 
@@ -31,6 +33,8 @@ export class AddCursoComponent implements OnInit {
     console.log('sendData');
     console.log(this.formDelCurso.value);
     this.crudService.AddCurso(this.formDelCurso.value).subscribe();
+
+    this.router.navigate(['/cursos']);
   }
 
 

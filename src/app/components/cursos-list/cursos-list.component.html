@@ -14,11 +14,11 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>9</td>
-                    <td>Ingles</td>
-                    <td>25/06/22</td>
-                    <td>30/06/22</td>
+                <tr *ngFor="let curso of Cursos; let iControl=index">
+                    <td>{{curso.id}}</td>
+                    <td>{{curso.Nombre}}</td>
+                    <td>{{curso.FechaDeInicioDelCurso}}</td>
+                    <td>{{curso.FechaDeFinDelCurso}}</td>
                     <td>
                         <a routerLink="/edit-curso/1">Editar</a>
                         <a >Eliminar</a>
