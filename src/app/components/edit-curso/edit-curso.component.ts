@@ -19,6 +19,7 @@ export class EditCursoComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private crudService:CrudService,
     public form:FormBuilder,
+    private router:Router
   ) {
     this.idCurso = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.idCurso);
@@ -45,6 +46,14 @@ export class EditCursoComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  sendData():any{
+    
+    this.crudService.updateCurso(this.idCurso, this.formDelCurso.value).subscribe(() => {
+      this.router.navigate(['/cursos']);
+    }
+    );
   }
   
 

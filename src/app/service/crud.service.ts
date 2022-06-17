@@ -12,6 +12,7 @@ export class CrudService {
   apiUrl2 = 'http://localhost:8000/api/cursos/';
   apiUrl3 = 'http://localhost:8000/api/deleteCurso/';
   apiUrl4 = 'http://localhost:8000/api/curso/';
+  apiUrl5 = 'http://localhost:8000/api/updateCurso/';
 
   constructor(private clientHttp:HttpClient) {}
 
@@ -32,5 +33,7 @@ export class CrudService {
     return this.clientHttp.get(this.apiUrl4+id, id);
   }
   
-  
+  updateCurso(id:any, datosCurso:Curso):Observable<any>{
+    return this.clientHttp.put(this.apiUrl5+id, datosCurso);
+  }
 }
