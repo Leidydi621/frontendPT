@@ -10,15 +10,23 @@ import { CrudService } from 'src/app/service/crud.service';
 })
 export class CursosListComponent implements OnInit {
   Cursos: any = [];
-
+  
   constructor(
     private crudService: CrudService
   ) { }
 
   ngOnInit(): void {
     this.crudService.getCursos().subscribe( res => {
-      console.log(res);
+      this.Cursos = res;
     });
+  }
+
+  deleteCurso(id: any, iControl:any) {
+    if (confirm('¿Está seguro de eliminar este curso?')) {
+      this.crudService.deleteCurso(id).subscribe( (res) => {
+        this.Cursos.splice(iControl, 1);
+      } );
+    }
   }
 
 }

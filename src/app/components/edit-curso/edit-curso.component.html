@@ -3,22 +3,26 @@
         Editar curso
     </div>
     <div class="card-body">
-        <form>
+        <form [formGroup]="formDelCurso" >
+            
             <div class="mb-3">
               <label for="" class="form-label">Curso:</label>
-              <input type="text"
-                class="form-control" name="" id="" aria-describedby="helpId" placeholder="Escribe el nombre del curso">
+              <input formControlName="Nombre" type="text"
+                class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
             </div>
+
             <div class="mb-3">
               <label for="" class="form-label">Fecha de inicio del curso:</label>
-              <input type="date"
+              <input formControlName="FechaDeInicioDelCurso" type="date"
                 class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
             </div>
+
             <div class="mb-3">
               <label for="" class="form-label">Fecha de fin del curso:</label>
-              <input type="date"
+              <input formControlName="FechaDeFinDelCurso" type="date"
                 class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
             </div>
+            
             <div class="btn-group" role="group" aria-label="">
                 <button type="button" class="btn btn-success">Agregar</button>
                 <button type="button" class="btn btn-primary">Cancelar</button>

@@ -10,6 +10,8 @@ import { Curso } from './Curso';
 export class CrudService {
   apiurl= 'http://localhost:8000/api/addCurso';
   apiUrl2 = 'http://localhost:8000/api/cursos/';
+  apiUrl3 = 'http://localhost:8000/api/deleteCurso/';
+  apiUrl4 = 'http://localhost:8000/api/curso/';
 
   constructor(private clientHttp:HttpClient) {}
 
@@ -21,4 +23,14 @@ export class CrudService {
   getCursos(){
     return this.clientHttp.get(this.apiUrl2);
   }
+
+  deleteCurso(id:any):Observable<any>{
+    return this.clientHttp.delete(this.apiUrl3+id);
+  }
+
+  detailCurso(id:any):Observable<any>{
+    return this.clientHttp.get(this.apiUrl4+id, id);
+  }
+  
+  
 }
